@@ -1,10 +1,10 @@
 {
-  "name": "slotfilter",
-  "description": "slot filter",
+  "name": "jeforth",
+  "description": "jeforth",
   "version": "0.1",
   "main": "index.html",
   "window": {
-    "toolbar": true,
+    "toolbar": false,
     "width": 660,
     "height": 500
   }
