@@ -10,12 +10,33 @@
     <link rel="stylesheet" href="../node_webkit/css/bootstrap.css"></link>
   </head>
   <body>
-    <H2>JeForth on Ksana PC</H2><a href="http://www.jeforth.com/jeforth/1a/">Original website</a>
+    <H2>JeForth on Ksana PC</H2><a target=_new href="http://www.jeforth.com/jeforth/1a/">Original website</a>
     <a href="https://github.com/yapcheahshen/jeforthksanapc">github</a>
 <div class="mainview">
 
 	<input id="cmd" class="search-query" value="4 5 * ." size=60></input><a class="btn btn-primary" id="btnrun">Run</a><br/>
+<div class="row">
+  <div class="col-6">
 <textarea id="output" class="form-control" rows=15></textarea>
+</div>
+<div class="col-6">
+<table cellpadding=1 border=1><tr bgcolor=silver><td>觀念<td>關鍵字<td>指令(點選帶到指令行)<td>共90分鐘</tr>
+
+<tr><td>堆疊<td>stack <td><a class="setcode" href="#">8</a><td align=center><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_1.html">教學</a></tr>
+<tr><td>字彙<td>words<td><a class="setcode" href="#">dup * .</a><td align=center><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_2.html">教學</a></tr>
+<tr><td>編譯</a> <td>dictionary<td><a class="setcode" href="#">: sq dup * ;</a><td align=center rowspan=2><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_3.html">教學</a></tr>
+<tr><td>編譯高階字</a><td><td><a class="setcode" href="#">: cube dup sq * ;</a></tr>
+<tr><td>巢狀呼叫</a><td>rstack<td><a class="setcode" href="#">7 cube .</a><td align=center><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_4.html">教學</a></tr>
+<tr><td>變數及位址</a><td>create<td><a class="setcode" href="#">create a 10 , </a><td align=center rowspan=3><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_5.html">教學</a></tr> 
+<tr><td>取值</a><td>@<td><a class="setcode" href="#">a @ .</a></tr> 
+<tr><td>賦值</a><td>!<td><a class="setcode" href="#">20 a !</a></tr> 
+<tr><td>參數化編譯<td>does<td><a class="setcode" href="#">: rate create , does r> @ * . ;</a><td align=center rowspan=3><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_6end.html">教學</a></tr>
+<tr><td>匯率範例<td>rate<td><a class="setcode" href="#">30 rate usd</a></tr>
+<tr><td>美金匯率<td>usd<td><a class="setcode" href="#">20 usd</a></tr>
+
+
+</td></tr></table>
+</div>
 
 </div>
 

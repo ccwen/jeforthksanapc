@@ -2,7 +2,11 @@ define(['jquery','underscore','backbone'], function($,_,Backbone) {
  	var View=Backbone.View.extend({
  		events:{
  			"keyup #cmd":"exec",
- 			"click #btnrun":"fortheval"
+ 			"click #btnrun":"fortheval",
+ 			"click .setcode":"setcode"
+ 		},
+ 		setcode:function(e) {
+ 			$("#cmd").val($(e.target).text());
  		},
 	 	exec:function() {
 	 		if (13===event.keyCode) this.fortheval();

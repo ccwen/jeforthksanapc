@@ -14,15 +14,11 @@
     
     2012/2/17 add example and modify kernel to be more friendly for education.
 */
-"uses strict";
-(function() {
+"uses strict";(function() {
   function JeForthVm() {
-    var stack = [] , rstack =[]; 
-    var dictionary = [];
-    var tib="", ntib=0 , here=0
+    var stack = [] , rstack =[], abortexec=false, compiling=false;
+    var dictionary = [],  tib="", ntib=0 , here=0, ip=0;   // instruction pointer
     var newname,newxt;                       // word under construction
-    var ip=0;                                // instruction pointer
-    var abortexec=false, compiling=false;
     function nexttoken() {                   // fetch a token from tib
         var token="";
         while (tib.substr(ntib,1)==' ') ntib++;
@@ -43,7 +39,7 @@
     }
     function execute(xt) {                   // run a word 
         if (typeof(xt)==="function") xt.call(this) ;  // primitive , execute it directly
-        else {  call(xt);}                   // make a high level call
+        else {  call.apply(this,[xt]);}                   // make a high level call
     }
     function call(address) {                 // inner loop
         abortexec=false;
@@ -51,10 +47,10 @@
         do {
             var addr=dictionary[ip++];       // fetch code and move IP to next cell
             if (typeof(addr) ==="function") {
-                addr();
+                addr.call(this);
             } else {
                 rstack.push(ip);
-                call(addr);
+                call.apply(this,[addr]);
             }   
         } while (!abortexec);
     }
@@ -107,7 +103,6 @@
     ,{name:"does"  ,xt:function does()     {dictionary[words[words.length-1].xt] =ip; exit() ; }}
     ,{name:"r>"    ,xt:function rfrom()    {stack.push(rstack.pop());}} 
   ];
-  
   function systemtype(t) {
     if (this.ticktype) this.ticktype(t);
   }  // define in HTML UI
